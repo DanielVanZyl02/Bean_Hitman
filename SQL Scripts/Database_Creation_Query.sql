@@ -6,7 +6,7 @@
     `bean_id` integer PRIMARY KEY AUTO_INCREMENT,
     `alias` varchar(50) UNIQUE NOT NULL,
     `org_id` integer NOT NULL,
-    `origin` varchar(100),
+    `origin` varchar(100), --- is 100 enough? Origin is more like backstory and less like country
     `skill_level` varchar(50)
   );
 
@@ -28,7 +28,7 @@
     `contract_id` integer NOT NULL,
     `hit_start_date` date NOT NULL,
     `hit_due_date` date NOT NULL,
-    `status` varchar(20),
+    `status` varchar(50) NOT NULL,
     `payment_id` integer UNIQUE NOT NULL,
     `location_id` integer,
     `weapon_purchase_id` integer UNIQUE
@@ -50,7 +50,7 @@
 
   CREATE TABLE `payments` (
     `payment_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `fertilizer` double,
+    `fertilizer` double, --- should we use double or decimal? Isn't decimal better for money?
     `soil` double,
     `nitrates` double,
     `status` varchar(50) NOT NULL
@@ -66,7 +66,7 @@
     `purchase_id` integer,
     `weapon_id` integer,
     `quantity` integer NOT NULL,
-    `cost` DECIMAL(10,2) NOT NULL,
+    `cost` DECIMAL(10,2) NOT NULL, --- Is this cost per item or total cost?
     PRIMARY KEY (`purchase_id`, `weapon_id`)
   );
 

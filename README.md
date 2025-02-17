@@ -1,6 +1,6 @@
 # Database Setup
 
-This repository serves as a base for managing and running MySQL scripts.
+This repository serves as a base for setting up the hitmen database.
 
 ## Setup Instructions
 
