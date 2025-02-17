@@ -1,7 +1,7 @@
 -- organisations
-INSERT INTO organisations (org_id, name, type) VALUES (1, 'Howard, Rodriguez and Price', 'Private');
-INSERT INTO organisations (org_id, name, type) VALUES (2, 'Watson-Ellis', 'Government');
-INSERT INTO organisations (org_id, name, type) VALUES (3, 'Hudson, Miles and Sanchez', 'Private');
+INSERT INTO organisations (org_id, name, type) VALUES (1, 'Division', 'Private');
+INSERT INTO organisations (org_id, name, type) VALUES (2, 'Anbu Black Ops', 'Government');
+INSERT INTO organisations (org_id, name, type) VALUES (3, 'Akatsuki', 'Private');
 INSERT INTO organisations (org_id, name, type) VALUES (4, 'Rowe, Thompson and Brown', 'Private');
 INSERT INTO organisations (org_id, name, type) VALUES (5, 'Espinoza-Sanchez', 'NGO');
 INSERT INTO organisations (org_id, name, type) VALUES (6, 'Baldwin-Quinn', 'Government');
@@ -11,9 +11,9 @@ INSERT INTO organisations (org_id, name, type) VALUES (9, 'Norton-Castillo', 'NG
 INSERT INTO organisations (org_id, name, type) VALUES (10, 'Torres, Aguilar and Jones', 'NGO');
 
 -- beans
-INSERT INTO beans (bean_id, alias, org_id, origin, skill_level) VALUES (1, 'kelleycindy', 5, 'Belize', 'Intermediate');
-INSERT INTO beans (bean_id, alias, org_id, origin, skill_level) VALUES (2, 'victoria56', 3, 'Denmark', 'Intermediate');
-INSERT INTO beans (bean_id, alias, org_id, origin, skill_level) VALUES (3, 'john88', 9, 'Syrian Arab Republic', 'Intermediate');
+INSERT INTO beans (bean_id, alias, org_id, origin, skill_level) VALUES (1, 'Killer Bean', 5, 'Belize', 'Intermediate');
+INSERT INTO beans (bean_id, alias, org_id, origin, skill_level) VALUES (2, 'Hit', 3, 'Never miss hit', 'Intermediate');
+INSERT INTO beans (bean_id, alias, org_id, origin, skill_level) VALUES (3, 'ATCMember', 9, 'Syrian Arab Republic', 'Intermediate');
 INSERT INTO beans (bean_id, alias, org_id, origin, skill_level) VALUES (4, 'allenjulie', 8, 'Lithuania', 'Expert');
 INSERT INTO beans (bean_id, alias, org_id, origin, skill_level) VALUES (5, 'robertowaters', 5, 'Egypt', 'Intermediate');
 INSERT INTO beans (bean_id, alias, org_id, origin, skill_level) VALUES (6, 'xhall', 9, 'Cocos (Keeling) Islands', 'Intermediate');
@@ -87,9 +87,9 @@ INSERT INTO locations (location_id, location_name, latitude, longitude, details)
 INSERT INTO locations (location_id, location_name, latitude, longitude, details) VALUES (10, 'Andrewborough', 63.782588, 123.310286, '72421 Evans Estate Huffmanfurt, PR 68577');
 
 -- targets 
-INSERT INTO targets (target_id, description, target_image_url) VALUES (1, 'Kelsey Jackson', 'https://dummyimage.com/136x151');
-INSERT INTO targets (target_id, description, target_image_url) VALUES (2, 'Mark Carroll', 'https://placekitten.com/940/103');
-INSERT INTO targets (target_id, description, target_image_url) VALUES (3, 'Dennis Green', 'https://dummyimage.com/182x401');
+INSERT INTO targets (target_id, description, target_image_url) VALUES (1, 'Rudolph Esterhuysen', 'https://nodejsone.com/wp-content/uploads/2022/08/NodeJsOne-Africa-2022-Rudolph-Esterhuysen.jpg');
+INSERT INTO targets (target_id, description, target_image_url) VALUES (2, 'Goku', 'https://wallpaperaccess.com/full/4871782.jpg');
+INSERT INTO targets (target_id, description, target_image_url) VALUES (3, 'Elon Musk', 'https://th.bing.com/th/id/R.7f74cdafb3416c87fcf605e66f4c12fd?rik=20zeF75LZuhQ7Q&riu=http%3a%2f%2fwww.thefamouspeople.com%2fprofiles%2fimages%2felon-musk-1.jpg&ehk=bGWEbcsdoxqEEwaNuveQSXmdQ1%2b%2bOFWRbnwdiGtgLoM%3d&risl=&pid=ImgRaw&r=0');
 INSERT INTO targets (target_id, description, target_image_url) VALUES (4, 'Veronica Miller', 'https://dummyimage.com/133x879');
 INSERT INTO targets (target_id, description, target_image_url) VALUES (5, 'David Clements', 'https://picsum.photos/126/858');
 INSERT INTO targets (target_id, description, target_image_url) VALUES (6, 'Tracy Smith', 'https://placekitten.com/285/402');
