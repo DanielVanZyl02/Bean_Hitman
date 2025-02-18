@@ -1,7 +1,7 @@
 CREATE VIEW hit_details AS
 SELECT
     h.hit_id,
-    t.description as target_name,
+    t.target_name,
     b.alias AS bean_alias,
     c.organisation_id,
     c.client_id,
