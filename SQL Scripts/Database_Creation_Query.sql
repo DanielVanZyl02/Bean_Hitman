@@ -9,7 +9,13 @@ CREATE TABLE `beans` (
     `alias` varchar(50) UNIQUE NOT NULL,
     `org_id` integer NOT NULL,
     `origin` varchar(100), -- is 100 enough? Origin is more like backstory and less like country
-    `skill_level` varchar(50)
+    `skill_level` ENUM(
+    'Street Level',
+    'Semi-pro',
+    'Professional',
+    'Seasoned Professional',
+    'Master'
+)
 );
 
 CREATE TABLE `specialisations` (
@@ -95,7 +101,7 @@ CREATE TABLE `targets` (
     `target_id` integer PRIMARY KEY AUTO_INCREMENT,
     `description` varchar(255) NOT NULL,
     `target_image_url` varchar(2083),
-    target_name varchar(100) NOT NULL
+    `target_name` varchar(50) NOT NULL
 );
 
 CREATE TABLE `clients` (

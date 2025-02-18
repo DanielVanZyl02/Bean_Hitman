@@ -73,7 +73,7 @@ VALUES (
         'Killer Bean',
         5,
         'Belize',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -89,7 +89,7 @@ VALUES (
         'Hit',
         3,
         'Never miss hit',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -105,7 +105,7 @@ VALUES (
         'ATCMember',
         9,
         'Syrian Arab Republic',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -121,7 +121,7 @@ VALUES (
         'Agent 47',
         8,
         'Lithuania',
-        'Expert'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -137,7 +137,7 @@ VALUES (
         'robertowaters',
         5,
         'Egypt',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -153,7 +153,7 @@ VALUES (
         'xhall',
         9,
         'Cocos (Keeling) Islands',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -169,7 +169,7 @@ VALUES (
         'jesusgallagher',
         1,
         'Luxembourg',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -185,7 +185,7 @@ VALUES (
         'qcraig',
         7,
         'Lao Peoples Democratic Republic',
-        'Beginner'
+        'Street Level'
     );
 
 INSERT INTO
@@ -201,7 +201,7 @@ VALUES (
         'james62',
         1,
         'Gibraltar',
-        'Expert'
+        'Seasoned Professional'
     );
 
 INSERT INTO
@@ -217,7 +217,7 @@ VALUES (
         'mbailey',
         9,
         'Estonia',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -233,7 +233,7 @@ VALUES (
         'wrichardson',
         1,
         'Turkmenistan',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -249,7 +249,7 @@ VALUES (
         'sheryldean',
         4,
         'Chad',
-        'Beginner'
+        'Street Level'
     );
 
 INSERT INTO
@@ -265,7 +265,7 @@ VALUES (
         'mark57',
         9,
         'Cote dIvoire',
-        'Expert'
+        'Seasoned Professional'
     );
 
 INSERT INTO
@@ -281,7 +281,7 @@ VALUES (
         'meganbecker',
         9,
         'Tuvalu',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -297,7 +297,7 @@ VALUES (
         'aaron97',
         1,
         'Burundi',
-        'Beginner'
+        'Street Level'
     );
 
 INSERT INTO
@@ -313,7 +313,7 @@ VALUES (
         'hortongregory',
         3,
         'Cape Verde',
-        'Beginner'
+        'Street Level'
     );
 
 INSERT INTO
@@ -329,7 +329,7 @@ VALUES (
         'middletoneric',
         2,
         'Martinique',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -345,7 +345,7 @@ VALUES (
         'thomas03',
         1,
         'Korea',
-        'Intermediate'
+        'Semi-pro'
     );
 
 INSERT INTO
@@ -361,7 +361,7 @@ VALUES (
         'jasonrodriguez',
         8,
         'Zimbabwe',
-        'Expert'
+        'Seasoned Professional'
     );
 
 INSERT INTO
@@ -377,7 +377,7 @@ VALUES (
         'ashley43',
         9,
         'Algeria',
-        'Beginner'
+        'Street Level'
     );
 
 -- specialisations
