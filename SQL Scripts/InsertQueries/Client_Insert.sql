@@ -1,6 +1,6 @@
 -- clients
 INSERT INTO clients (client_id, alias)
-VALUES (1, 'wendyhayes');
+VALUES (1, 'Kakarot');
 INSERT INTO clients (client_id, alias)
 VALUES (2, 'angela72');
 INSERT INTO clients (client_id, alias)

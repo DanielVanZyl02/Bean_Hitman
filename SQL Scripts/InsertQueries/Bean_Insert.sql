@@ -64,7 +64,7 @@ INSERT INTO beans (
     )
 VALUES (
         5,
-        'robertowaters',
+        'The Jackal',
         5,
         'Egypt',
         'Semi-pro'

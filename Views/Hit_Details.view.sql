@@ -1,5 +1,5 @@
 CREATE VIEW hit_details AS
-SELECT
+SELECT DISTINCT
     h.hit_id,
     t.target_name,
     b.alias AS bean_alias,
@@ -12,8 +12,7 @@ SELECT
     p.fertilizer,
     p.soil,
     p.nitrates,
-    l.location_name,
-    wp.name AS weapon_name
+    l.location_name
 FROM
     hits h
     JOIN targets t ON h.target_id = t.target_id
@@ -23,6 +22,4 @@ FROM
     JOIN clients cl ON c.client_id = cl.client_id
     JOIN payments p ON h.payment_id = p.payment_id
     LEFT JOIN locations l ON h.location_id = l.location_id
-    LEFT JOIN weapon_purchase w ON h.weapon_purchase_id = w.purchase_id
-    JOIN weapon_purchase_items wpi ON w.purchase_id = wpi.purchase_id
-    JOIN weapons wp ON wpi.weapon_id = wp.weapon_id;
+    LEFT JOIN weapon_purchase w ON h.weapon_purchase_id = w.purchase_id;

@@ -7,7 +7,7 @@ INSERT INTO contracts (
         end_date,
         status
     )
-VALUES (1, 2, 8, '2020-10-18', '2025-02-28', 'Cancelled');
+VALUES (1, 2, 1, '2020-10-18', '2025-02-28', 'Cancelled');
 INSERT INTO contracts (
         contract_id,
         organisation_id,
