@@ -3,8 +3,7 @@ variable "region" {
   default = "af-south-1"
 }
 
-variable "repository_name" {
+variable "database_name" {
   type = string
-  default = "beans-flyway-migration"
+  default = "hitmanassociation"
 }
-
