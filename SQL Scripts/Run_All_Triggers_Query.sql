@@ -7,5 +7,5 @@ SOURCE Triggers/WeaponPurchaseItemsInsertTrigger.sql;
 SOURCE Triggers/WeaponPurchaseItemsUpdateCostTrigger.sql;
 SOURCE Triggers/WeaponPurchaseUpdateTotalCostTrigger.sql;
 SOURCE Triggers/BeforeInsertTrimBeanAliasTrigger.sql;
-SOURCE Triggers/BeforeUpdateTrimeBeanAliasTrigger.sql;
+SOURCE Triggers/BeforeUpdateTrimBeanAliasTrigger.sql;
 SOURCE Triggers/BlockAdditionalCurrencyEntriesTrigger.sql;
