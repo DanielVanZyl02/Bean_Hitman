@@ -1,5 +1,5 @@
 select 'Creating view bean_details';
-CREATE VIEW bean_details AS
+CREATE OR REPLACE VIEW bean_details AS
 SELECT b.bean_id,
     b.alias,
     o.name AS organisation_name,

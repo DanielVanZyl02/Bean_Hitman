@@ -1,5 +1,6 @@
-USE hitman_association;
 -- This trigger calculates the cost of a weapon_purchase_item based on weapon price and quantity.
+DROP TRIGGER IF EXISTS insert_weapons_purchase_items;
+
 DELIMITER $$
 
 CREATE TRIGGER insert_weapons_purchase_items

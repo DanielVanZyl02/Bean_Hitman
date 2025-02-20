@@ -1,4 +1,4 @@
-USE hitman_association;
+DROP TRIGGER IF EXISTS update_weapon_purchase_total;
 
 DELIMITER $$
 

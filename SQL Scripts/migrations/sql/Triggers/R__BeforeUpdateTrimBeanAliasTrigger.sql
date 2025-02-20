@@ -1,4 +1,4 @@
-USE hitman_association;
+DROP TRIGGER IF EXISTS before_update_trim_bean_alias_trigger;
 
 DELIMITER $$
 

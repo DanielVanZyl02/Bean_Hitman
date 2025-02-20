@@ -1,5 +1,5 @@
 select 'Creating view hit_details';
-CREATE VIEW hit_details AS
+CREATE OR REPLACE VIEW hit_details AS
 SELECT DISTINCT
     h.hit_id,
     t.target_name,

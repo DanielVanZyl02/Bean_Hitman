@@ -1,4 +1,3 @@
-USE hitman_association;
 
 DELIMITER $$
 DROP FUNCTION IF EXISTS CalculatePaymentValue $$

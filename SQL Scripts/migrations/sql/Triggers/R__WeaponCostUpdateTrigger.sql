@@ -1,4 +1,4 @@
-USE hitman_association;
+DROP TRIGGER IF EXISTS weaponCostIsUpdated;
 
 DELIMITER $$
 

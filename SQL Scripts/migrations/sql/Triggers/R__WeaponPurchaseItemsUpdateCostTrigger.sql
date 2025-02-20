@@ -1,5 +1,6 @@
-USE hitman_association;
 -- This trigger upadtes the weapon purchase item cost whenever its updated (quantity or weapon)
+DROP TRIGGER IF EXISTS weapon_purchase_item_update_cost;
+
 DELIMITER $$
 
 CREATE TRIGGER weapon_purchase_item_update_cost

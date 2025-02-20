@@ -1,3 +1,5 @@
+DROP TRIGGER IF EXISTS block_additional_inserts_on_currency_values;
+
 DELIMITER $$
 
 CREATE TRIGGER block_additional_inserts_on_currency_values

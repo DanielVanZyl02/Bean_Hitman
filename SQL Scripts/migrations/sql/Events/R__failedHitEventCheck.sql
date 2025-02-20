@@ -1,3 +1,5 @@
+DROP EVENT IF EXISTS update_expired_hits;
+
 DELIMITER $$
 
 CREATE EVENT update_expired_hits

@@ -1,4 +1,4 @@
-USE hitman_association;
+DROP TRIGGER IF EXISTS prevent_multiple_active_hits_before_insert;
 
 DELIMITER $$
 
@@ -18,6 +18,11 @@ BEGIN
         SET MESSAGE_TEXT = 'This bean already has an active hit.';
     END IF;
 END$$
+
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS prevent_multiple_active_hits_before_update;
+DELIMITER $$
 
 CREATE TRIGGER prevent_multiple_active_hits_before_update
 BEFORE UPDATE ON hits

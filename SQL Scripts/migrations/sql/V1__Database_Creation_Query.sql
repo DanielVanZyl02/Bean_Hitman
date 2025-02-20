@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS `Hitman_Association`;
-CREATE DATABASE `Hitman_Association`;
-USE `Hitman_Association`;
 CREATE TABLE `beans` (
     `bean_id` integer PRIMARY KEY AUTO_INCREMENT,
     `alias` varchar(50) UNIQUE NOT NULL CHECK (LENGTH(TRIM(`alias`)) > 0),

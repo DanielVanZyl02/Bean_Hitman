@@ -1,5 +1,5 @@
 select 'Creating view contract_details';
-CREATE VIEW contract_details AS
+CREATE OR REPLACE VIEW contract_details AS
 SELECT c.contract_id,
     o.name AS organisation_name,
     cl.alias AS client_name,
