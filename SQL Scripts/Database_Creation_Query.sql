@@ -121,10 +121,10 @@ CREATE TABLE `contracts` (
     )
 );
 CREATE TABLE `currency_values` (
-    `currency_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `fertilizer` DECIMAL(10, 2) NOT NULL,
-    `soil` DECIMAL(10, 2) NOT NULL,
-    `nitrates` DECIMAL(10, 2) NOT NULL
+    `currency_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+    `fertilizer` DECIMAL(10, 2) NOT NULL CHECK (`fertilizer` > 0),
+    `soil` DECIMAL(10, 2) NOT NULL CHECK (`soil` > 0),
+    `nitrates` DECIMAL(10, 2) NOT NULL CHECK (`nitrates` > 0)
 );
 ALTER TABLE `hits`
 ADD FOREIGN KEY (`bean_id`) REFERENCES `beans` (`bean_id`);
