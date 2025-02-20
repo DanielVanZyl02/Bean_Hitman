@@ -1,0 +1,12 @@
+SOURCE Procs/HitCreationProc.sql;
+SOURCE Procs/PromoteBeanNextLevelProc.sql;
+SOURCE Procs/PromoteBeanSpecifiedLevelProc.sql;
+SOURCE Procs/PurchaseWeaponProc.sql;
+SOURCE Procs/ReportProcs.sql;
+SOURCE Procs/SelectingAppropriateHitmanByRandomProc.sql;
+SOURCE Procs/CreateBeanRoleProc.sql;
+SOURCE Procs/CreateBeanUserProc.sql;
+SOURCE Procs/CreateMiddlemanRoleProc.sql;
+SOURCE Procs/CreateMiddlemanUserProc.sql;
+SOURCE Procs/CreateOrgRoleProc.sql;
+SOURCE Procs/CreateOrgUserProc.sql;
