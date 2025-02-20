@@ -5,7 +5,7 @@ resource "random_password" "password" {
 }
 
 resource "aws_secretsmanager_secret" "hitman-secret" {
-  name = "hitman-rds-db-secrets"
+  name = "hitmans-rds-db-secrets"
 }
 
 resource "aws_secretsmanager_secret_version" "s-version" {
