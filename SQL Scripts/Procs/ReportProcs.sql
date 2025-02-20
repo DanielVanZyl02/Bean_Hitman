@@ -111,16 +111,96 @@ END $$
 
 
 -- Monthly Revenue Report
-DROP PROCEDURE IF EXISTS MonthlyHitRevenue$$
-CREATE PROCEDURE MonthlyHitRevenue()
+DROP PROCEDURE IF exists MonthlyHitRevenue $$
+CREATE PROCEDURE MonthlyHitRevenue(payment_status VARCHAR(50))
 BEGIN
+    DECLARE Soil_Rate DECIMAL(10,2);
+    DECLARE Fertilizer_Rate DECIMAL(10,2);
+    DECLARE Nitrates_Rate DECIMAL(10,2);
+
+    SELECT soil, fertilizer, nitrates INTO Soil_Rate, Fertilizer_Rate, Nitrates_Rate
+    FROM currency_values LIMIT 1;
+    
     SELECT 
-    SUM(p.fertilizer + p.nitrates + p.soil) AS Revenue,
-    monthname(h.hit_due_date) AS MonthDue
+        ROUND(SUM(p.soil),2) AS Raw_Soil,
+        Soil_Rate,
+        ROUND(SUM(p.fertilizer),2)AS Raw_Fertilizer,
+		Fertilizer_Rate,
+        ROUND(SUM(p.nitrates),2) AS Raw_Nitrate,
+        Nitrates_Rate,
+        ROUND((SUM(p.soil) * Soil_Rate),2)  AS Soil_Value,
+        ROUND((SUM(p.fertilizer) * Fertilizer_Rate),2) AS Fertilizer_Value,
+        ROUND((SUM(p.nitrates) * Nitrates_Rate),2) AS Nitrates_Value,
+        ROUND((SUM(p.soil * Soil_Rate + p.fertilizer * Fertilizer_Rate + p.nitrates * Nitrates_Rate)),2) AS Total_Value, 
+        MONTHNAME(h.hit_due_date) AS Month
     FROM hits h
     INNER JOIN payments p ON h.payment_id = p.payment_id
-    WHERE h.status = 'Completed'    
-    GROUP BY MonthDue;
+    WHERE h.status = 'Completed' AND p.status = payment_status
+    GROUP BY Month
+    ORDER BY Month;
+END $$
+
+
+-- Get Amounts due for each client
+DROP PROCEDURE IF EXISTS OutstandingPayments $$
+CREATE PROCEDURE OutstandingPayments(client_alias VARCHAR(50))
+BEGIN
+	SELECT h.hit_id as Hit_ID,  
+    cl.alias AS Client,
+    org.name AS Organisation,
+    p.soil AS Soil,
+    p.fertilizer AS Fertilizer,
+    p.nitrates AS Nitrates
+    FROM hits h
+    INNER JOIN payments p ON p.payment_id = h.payment_id
+    INNER JOIN contracts con ON con.contract_id = h.contract_id
+    INNER JOIN organisations org ON org.org_id = con.organisation_id
+    INNER JOIN clients cl ON cl.client_id = con.client_id
+    WHERE cl.alias = client_alias
+    AND p.status = 'Pending';
+END $$
+
+-- Beans Under Contracts
+DROP PROCEDURE IF EXISTS BeansUnderContract $$
+CREATE PROCEDURE BeansUnderClientContract(org_name VARCHAR(50))
+BEGIN
+	SELECT org.name, b.alias, con.contract_id
+    FROM organisations org
+    INNER JOIN beans b ON b.org_id = org.org_id
+    INNER JOIN contracts con ON con.organisation_id = org.org_id
+    WHERE org.name = org_name
+    AND con.status = 'Active';
+END $$
+
+-- Bean
+DROP PROCEDURE IF EXISTS BeanHitInfo $$
+CREATE PROCEDURE BeanHitInfo(bean_alias VARCHAR(50), h_status VARCHAR(50))
+BEGIN
+	SELECT b.alias AS Bean_Alias, 
+	t.description AS Target_Description,
+    t.target_name AS Target_Name,
+    h.hit_start_date AS Start_Date,
+    h.hit_due_date AS Due_Date,
+    l.longitude AS Location_Longitude,
+    l.latitude AS Location_Latitude
+    FROM beans b
+    INNER JOIN hits h ON h.bean_id = b.bean_id
+    INNER JOIN targets t ON t.target_id = h.target_id
+    INNER JOIN locations l ON l.location_id = h.location_id
+    WHERE b.alias = bean_alias
+    AND h.status = h_status;
+END $$
+
+DROP PROCEDURE IF EXISTS BeanSpecInfo $$
+CREATE PROCEDURE BeanSpecInfo(bean_alias VARCHAR(50))
+BEGIN
+	SELECT b.alias AS Bean_Alias, 
+    b.skill_level AS Bean_Skill,
+    s.spec_name AS Specialisation
+    FROM beans b
+	INNER JOIN spec_bean sb ON sb.bean_id = b.bean_id
+    INNER JOIN specialisations s ON s.spec_id = sb.spec_id
+    WHERE b.alias = bean_alias;
 END $$
 
 DELIMITER ;

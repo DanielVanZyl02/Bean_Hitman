@@ -1,9 +1,9 @@
-USE hitman_association;
+DROP TRIGGER IF EXISTS insert_weapon_purchase_total
 
 DELIMITER $$
 
-CREATE TRIGGER update_weapon_purchase_total
-AFTER UPDATE ON weapon_purchase_items
+CREATE TRIGGER insert_weapon_purchase_total
+AFTER INSERT ON weapon_purchase_items
 FOR EACH ROW
 BEGIN
     UPDATE weapon_purchase

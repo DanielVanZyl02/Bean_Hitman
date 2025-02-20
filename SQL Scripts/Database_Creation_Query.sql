@@ -31,7 +31,8 @@ CREATE TABLE `hits` (
     `hit_start_date` date NOT NULL,
     `hit_due_date` date NOT NULL,
     `status` ENUM(
-        'Scheduled', -- STart date is after current date
+		'Pending',
+        'Scheduled', -- Start date is after current date
         'Completed',
         'Cancelled',
         'Failed',
