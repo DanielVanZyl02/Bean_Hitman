@@ -31,7 +31,7 @@ CREATE TABLE `hits` (
     `hit_start_date` date NOT NULL,
     `hit_due_date` date NOT NULL,
     `status` ENUM(
-        'Scheduled',
+        'Scheduled', -- STart date is after current date
         'Completed',
         'Cancelled',
         'Failed',
@@ -79,7 +79,7 @@ CREATE TABLE `weapon_purchase_items` (
     `weapon_id` integer,
     `quantity` integer NOT NULL CHECK (`quantity` > 0),
     `cost` DECIMAL(10, 2) NOT NULL CHECK (`cost` >= 0),
-    -- Is this cost per item or total cost?
+    -- This is cost per purchase item, which is summed to form the total cost of the weapon purchases
     PRIMARY KEY (`purchase_id`, `weapon_id`)
 );
 CREATE TABLE `weapons` (
