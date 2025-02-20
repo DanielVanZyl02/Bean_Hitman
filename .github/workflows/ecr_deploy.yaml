@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
           chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key -N -L 6000:${{  secrets.DB_ENDPOINT }}:3306 ec2-user@${{ secrets.INSTANCE_HOST }}
+          ssh -i private_key -N -L 6000:${{  secrets.DB_ENDPOINT }}:3306 ec2-user@${{ secrets.INSTANCE_HOST }}
 
       - name: Run Fly Migration
         run: flyway migrate
