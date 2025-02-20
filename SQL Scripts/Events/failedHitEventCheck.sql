@@ -7,7 +7,7 @@ BEGIN
     UPDATE hits 
     SET status = 'FAILED'
     WHERE hit_due_date < CURDATE() 
-    AND status IN ('PENDING', 'IN_PROGRESS'); 
+    AND status IN ('Active'); 
 END $$
 
 DELIMITER ;

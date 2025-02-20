@@ -31,7 +31,7 @@ CREATE TABLE `hits` (
     `hit_start_date` date NOT NULL,
     `hit_due_date` date NOT NULL,
     `status` ENUM(
-        'Scheduled',
+        'Scheduled', -- STart date is after current date
         'Completed',
         'Cancelled',
         'Failed',
@@ -82,7 +82,7 @@ CREATE TABLE `weapon_purchase_items` (
     `weapon_id` integer,
     `quantity` integer NOT NULL CHECK (`quantity` > 0),
     `cost` DECIMAL(10, 2) NOT NULL CHECK (`cost` >= 0),
-    -- Is this cost per item or total cost?
+    -- This is cost per purchase item, which is summed to form the total cost of the weapon purchases
     PRIMARY KEY (`purchase_id`, `weapon_id`)
 );
 CREATE TABLE `weapons` (
@@ -127,10 +127,10 @@ CREATE TABLE `contracts` (
     )
 );
 CREATE TABLE `currency_values` (
-    `currency_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `fertilizer` DECIMAL(10, 2) NOT NULL,
-    `soil` DECIMAL(10, 2) NOT NULL,
-    `nitrates` DECIMAL(10, 2) NOT NULL
+    `currency_id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+    `fertilizer` DECIMAL(10, 2) NOT NULL CHECK (`fertilizer` > 0),
+    `soil` DECIMAL(10, 2) NOT NULL CHECK (`soil` > 0),
+    `nitrates` DECIMAL(10, 2) NOT NULL CHECK (`nitrates` > 0)
 );
 ALTER TABLE `hits`
 ADD FOREIGN KEY (`bean_id`) REFERENCES `beans` (`bean_id`);
