@@ -1,16 +1,38 @@
-DELIMITER $$ CREATE PROCEDURE CreateOrgUser(
+DELIMITER // 
+
+DROP PROCEDURE IF EXISTS CreateOrgUser // 
+
+CREATE PROCEDURE CreateOrgUser(
     IN p_username VARCHAR(50),
     IN p_password VARCHAR(50),
     IN p_type VARCHAR(50)
 ) BEGIN -- Create MySQL user at the server level
-CREATE USER p_username @'%' IDENTIFIED BY p_password;
--- Grant privileges
-GRANT SELECT,
-    INSERT,
-    UPDATE ON main_db.organisations TO p_username @'%';
+SET @create_user_query = CONCAT(
+        'CREATE USER ''',
+        p_username,
+        '''@''%'' IDENTIFIED BY ''',
+        p_password,
+        ''';'
+    );
+PREPARE stmt
+FROM @create_user_query;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+-- Assign the role to the user
+SET @assign_role_query = CONCAT(
+        'GRANT ''org_role'' TO ''',
+        p_username,
+        '''@''%'';'
+    );
+PREPARE stmt
+FROM @assign_role_query;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 -- Apply changes
 FLUSH PRIVILEGES;
 -- Insert user into the organisations table
-INSERT INTO organisations (username, type)
+INSERT INTO organisations (name, type)
 VALUES (p_username, p_type);
-END $$ DELIMITER;
+END // 
+
+DELIMITER;
