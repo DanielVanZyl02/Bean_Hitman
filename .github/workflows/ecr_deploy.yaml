@@ -3,6 +3,7 @@ on:
     branches:
       - main
       - development
+      - feat/*
 
 
 jobs:
@@ -30,9 +31,9 @@ jobs:
 
       - name: Setup SSH Tunnel
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
-          chmod 400 private_key.pem
-          ssh -o StrictHostKeyChecking=no -i private_key.pem -N -L 6000:${{  secrets.DB_ENDPOINT }}:3306 ec2-user@${{ secrets.INSTANCE_HOST }}
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
+          chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key -N -L 6000:${{  secrets.DB_ENDPOINT }}:3306 ec2-user@${{ secrets.INSTANCE_HOST }}
 
       - name: Run Fly Migration
         run: flyway migrate
