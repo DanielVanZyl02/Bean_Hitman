@@ -1,4 +1,5 @@
 -- suppliers
+select 'Inserting suppliers';
 INSERT INTO suppliers (supplier_id, name, contact_number)
 VALUES (
         1,

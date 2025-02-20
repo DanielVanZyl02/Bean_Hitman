@@ -1,0 +1,11 @@
+SOURCE Triggers/DateCheckBeforeHitInsertTrigger.sql;
+SOURCE Triggers/DateCheckBeforeHitUpdateTrigger.sql;
+SOURCE Triggers/ExclusiveActiveHitEnforcementTrigger.sql;
+SOURCE Triggers/WeaponCostUpdateTrigger.sql;
+SOURCE Triggers/WeaponPurchaseDeleteUpdateCostTrigger.sql;
+SOURCE Triggers/WeaponPurchaseItemsInsertTrigger.sql;
+SOURCE Triggers/WeaponPurchaseItemsUpdateCostTrigger.sql;
+SOURCE Triggers/WeaponPurchaseUpdateTotalCostTrigger.sql;
+SOURCE Triggers/BeforeInsertTrimBeanAliasTrigger.sql;
+SOURCE Triggers/BeforeUpdateTrimBeanAliasTrigger.sql;
+SOURCE Triggers/BlockAdditionalCurrencyEntriesTrigger.sql;

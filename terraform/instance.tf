@@ -1,13 +1,13 @@
 resource "aws_instance" "bastion" {
 
-  ami = "ami-0826e47ffa7af004d"
+  ami = "ami-002a9ce45762e090d"
   instance_type = "t3.nano"
   subnet_id = aws_subnet.public-subnet.id
 
-  key_name = "hitman-beans-key"
+  key_name = "bean-hitman-key"
   associate_public_ip_address = true
-
-  vpc_security_group_ids = [aws_security_group.bastion_grp.id]
+  iam_instance_profile = aws_iam_instance_profile.ssm-profile.name
+  vpc_security_group_ids = [aws_security_group.bastion_grp.id, aws_security_group.ssm-sec-grp.id]
 
   tags = {
     Name = "SSH bastion"

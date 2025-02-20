@@ -1,4 +1,5 @@
 -- spec_bean
+select 'Inserting spec_bean';
 INSERT INTO spec_bean (bean_id, spec_id)
 VALUES (8, 7);
 INSERT INTO spec_bean (bean_id, spec_id)

@@ -1,3 +1,4 @@
+select 'Creating view hit_details';
 CREATE VIEW hit_details AS
 SELECT DISTINCT
     h.hit_id,
@@ -23,3 +24,4 @@ FROM
     JOIN payments p ON h.payment_id = p.payment_id
     LEFT JOIN locations l ON h.location_id = l.location_id
     LEFT JOIN weapon_purchase w ON h.weapon_purchase_id = w.purchase_id;
+
