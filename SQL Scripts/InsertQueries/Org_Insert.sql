@@ -6,7 +6,7 @@ INSERT INTO organisations (org_id, name, type)
 VALUES (
         2,
         'Anbu Black Ops',
-        'Government'
+        'Mafia'
     );
 INSERT INTO organisations (org_id, name, type)
 VALUES (3, 'Akatsuki', 'Private');
@@ -22,7 +22,7 @@ INSERT INTO organisations (org_id, name, type)
 VALUES (
         6,
         'The International Contract Agency',
-        'Government'
+        'Cartel'
     );
 INSERT INTO organisations (org_id, name, type)
 VALUES (7, 'Leonard Inc', 'Private');
@@ -30,7 +30,7 @@ INSERT INTO organisations (org_id, name, type)
 VALUES (
         8,
         'Collier-Dyer',
-        'Government'
+        'Terrorist'
     );
 INSERT INTO organisations (org_id, name, type)
 VALUES (9, 'Norton-Castillo', 'NGO');
@@ -38,5 +38,5 @@ INSERT INTO organisations (org_id, name, type)
 VALUES (
         10,
         'Torres, Aguilar and Jones',
-        'NGO'
+        'Cartel'
     );
