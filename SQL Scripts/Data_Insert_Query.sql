@@ -13,3 +13,4 @@ SOURCE InsertQueries/Supplier_Insert.sql;
 SOURCE InsertQueries/Weapon_Suppliers_Insert.sql;
 SOURCE InsertQueries/Weapon_Purchase_Items_Insert.sql;
 SOURCE InsertQueries/Hit_Insert.sql;
+SOURCE InsertQueries/Currency_Value_Insert.sql;
