@@ -10,4 +10,4 @@ GRANT EXECUTE ON PROCEDURE Hitman_Association.PromoteBeanNextLevelProc TO 'bean_
 -- Apply changes
 FLUSH PRIVILEGES;
 END // 
-DELIMITER;
+DELIMITER ;

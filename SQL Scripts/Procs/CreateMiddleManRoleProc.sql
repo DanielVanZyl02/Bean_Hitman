@@ -13,4 +13,4 @@ GRANT ALL PRIVILEGES ON Hitman_Association.clients TO 'middleman_role';
 FLUSH PRIVILEGES;
 END // 
 
-DELIMITER;
+DELIMITER ;
