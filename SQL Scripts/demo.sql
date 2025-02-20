@@ -2,8 +2,8 @@
 -- we're assuming the client, organisation and bean already exist
 
 CALL CreateHitContract(
-    'JohnDoe',               -- p_client_alias
-    'Shadow Syndicate',      -- p_organisation_name
+    'New Client',               -- p_client_alias
+    'The Brotherhood',      -- p_organisation_name
     'High-profile target',   -- p_target_description
     'https://example.com/image.jpg', -- p_target_image_url
     'Mr. X',                 -- p_target_name
@@ -18,5 +18,6 @@ CALL CreateHitContract(
     2000.00,                 -- p_soil
     1500.00,                 -- p_nitrates
     'Pending',               -- p_payment_status
-    3                        -- p_bean_id
+    1                        -- p_bean_id
 );
+
