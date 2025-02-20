@@ -1,4 +1,5 @@
 -- hits
+select 'Inserting hits';
 INSERT INTO hits (
         hit_id,
         target_id,

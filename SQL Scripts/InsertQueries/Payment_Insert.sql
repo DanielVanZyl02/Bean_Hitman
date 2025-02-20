@@ -1,4 +1,5 @@
 -- payments 
+select 'Inserting payments';
 INSERT INTO payments (payment_id, fertilizer, soil, nitrates, status)
 VALUES (1, 374.83, 882.58, 499.35, 'Completed');
 INSERT INTO payments (payment_id, fertilizer, soil, nitrates, status)

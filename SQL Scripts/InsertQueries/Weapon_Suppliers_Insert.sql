@@ -1,4 +1,5 @@
 -- weapons_suppliers
+select 'Inserting weapons_suppliers';
 INSERT INTO weapons_suppliers (supplier_id, weapon_id)
 VALUES (9, 20);
 INSERT INTO weapons_suppliers (supplier_id, weapon_id)
