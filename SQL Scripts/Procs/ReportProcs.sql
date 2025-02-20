@@ -1,6 +1,8 @@
--- Get the most successful beans by earnings
+USE hitman_association;
 DELIMITER $$
 
+-- Get the most successful beans by earnings
+DROP PROCEDURE IF EXISTS GetTopEarningBeans
 CREATE PROCEDURE GetTopEarningBeans(limit_count INT)
 BEGIN
     SELECT 
@@ -16,9 +18,8 @@ BEGIN
     LIMIT limit_count;
 END $$
 
-
-
 -- Get the total amount of nutrients, soil, and fertilizer paid for all hits
+DROP PROCEDURE IF EXISTS GetTotalSpent
 CREATE PROCEDURE GetTotalSpent()
 BEGIN
     SELECT 
@@ -32,7 +33,7 @@ END $$
 
 
 -- Calculate the total number of hits performed per bean
-
+DROP PROCEDURE IF EXISTS GetHitCountPerBean
 CREATE PROCEDURE GetHitCountPerBean()
 BEGIN
     SELECT 
@@ -46,6 +47,7 @@ BEGIN
 END $$
 
 -- Find the Most Used Weapon in Successful Hits
+DROP PROCEDURE IF EXISTS GetMostUsedWeapon
 CREATE PROCEDURE GetMostUsedWeapon()
 BEGIN
     SELECT 
@@ -62,6 +64,7 @@ BEGIN
 END $$
 
 -- List Beans with the Most Specializations
+DROP PROCEDURE IF EXISTS GetTopSpecializedBeans
 CREATE PROCEDURE GetTopSpecializedBeans(limit_count INT)
 BEGIN
     SELECT 
@@ -77,6 +80,7 @@ END $$
 
 
 -- Get Most Profitable Organization
+DROP PROCEDURE IF EXISTS GetTopEarningOrganization
 CREATE PROCEDURE GetTopEarningOrganization()
 BEGIN
     SELECT 
@@ -93,6 +97,7 @@ BEGIN
 END $$
 
 -- Get Clients with the Most Contracts
+DROP PROCEDURE IF EXISTS GetTopClients
 CREATE PROCEDURE GetTopClients(limit_count INT)
 BEGIN
     SELECT 
@@ -107,8 +112,7 @@ END $$
 
 
 -- Monthly Revenue Report
-DROP PROCEDURE IF exists MonthlyHitRevenue;
-
+DROP PROCEDURE IF EXISTS MonthlyHitRevenue;
 CREATE PROCEDURE MonthlyHitRevenue()
 BEGIN
     SELECT 
