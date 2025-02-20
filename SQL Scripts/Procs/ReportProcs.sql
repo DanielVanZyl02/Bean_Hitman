@@ -1,7 +1,7 @@
 USE hitman_association;
 DELIMITER $$
 
-DROP PROCEDURE IF EXISTS GetTopEarningBeans;
+DROP PROCEDURE IF EXISTS GetTopEarningBeans$$
 CREATE PROCEDURE GetTopEarningBeans(limit_count INT)
 BEGIN
     SELECT 
