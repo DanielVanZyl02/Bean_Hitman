@@ -1,4 +1,4 @@
-USE hitman_association;
+DROP TRIGGER IF EXISTS before_insert_trim_client_alias_trigger;
 
 DELIMITER $$
 
