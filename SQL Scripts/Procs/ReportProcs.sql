@@ -143,10 +143,15 @@ END $$
 
 
 -- Get Amounts due for each client
-DROP PROCEDURE IF exists AmountDue $$
-CREATE PROCEDURE AmountDue(client_alias VARCHAR(50))
+DROP PROCEDURE IF EXISTS OutstandingPayments $$
+CREATE PROCEDURE OutstandingPayments(client_alias VARCHAR(50))
 BEGIN
-    SELECT  cl.alias AS Client, org.name AS Organisation, p.soil AS Soil, p.fertilizer AS Fertilizer, p.nitrates AS Nitrates
+	SELECT h.hit_id as Hit_ID,  
+    cl.alias AS Client,
+    org.name AS Organisation,
+    p.soil AS Soil,
+    p.fertilizer AS Fertilizer,
+    p.nitrates AS Nitrates
     FROM hits h
     INNER JOIN payments p ON p.payment_id = h.payment_id
     INNER JOIN contracts con ON con.contract_id = h.contract_id
@@ -154,6 +159,49 @@ BEGIN
     INNER JOIN clients cl ON cl.client_id = con.client_id
     WHERE cl.alias = client_alias
     AND p.status = 'Pending';
+END $$
+
+-- Beans Under Contracts
+DROP PROCEDURE IF EXISTS BeansUnderContract $$
+CREATE PROCEDURE BeansUnderClientContract(org_name VARCHAR(50))
+BEGIN
+	SELECT org.name, b.alias, con.contract_id
+    FROM organisations org
+    INNER JOIN beans b ON b.org_id = org.org_id
+    INNER JOIN contracts con ON con.organisation_id = org.org_id
+    WHERE org.name = org_name
+    AND con.status = 'Active';
+END $$
+
+-- Bean
+DROP PROCEDURE IF EXISTS BeanHitInfo $$
+CREATE PROCEDURE BeanHitInfo(bean_alias VARCHAR(50), h_status VARCHAR(50))
+BEGIN
+	SELECT b.alias AS Bean_Alias, 
+	t.description AS Target_Description,
+    t.target_name AS Target_Name,
+    h.hit_start_date AS Start_Date,
+    h.hit_due_date AS Due_Date,
+    l.longitude AS Location_Longitude,
+    l.latitude AS Location_Latitude
+    FROM beans b
+    INNER JOIN hits h ON h.bean_id = b.bean_id
+    INNER JOIN targets t ON t.target_id = h.target_id
+    INNER JOIN locations l ON l.location_id = h.location_id
+    WHERE b.alias = bean_alias
+    AND h.status = h_status;
+END $$
+
+DROP PROCEDURE IF EXISTS BeanSpecInfo $$
+CREATE PROCEDURE BeanSpecInfo(bean_alias VARCHAR(50))
+BEGIN
+	SELECT b.alias AS Bean_Alias, 
+    b.skill_level AS Bean_Skill,
+    s.spec_name AS Specialisation
+    FROM beans b
+	INNER JOIN spec_bean sb ON sb.bean_id = b.bean_id
+    INNER JOIN specialisations s ON s.spec_id = sb.spec_id
+    WHERE b.alias = bean_alias;
 END $$
 
 DELIMITER ;
