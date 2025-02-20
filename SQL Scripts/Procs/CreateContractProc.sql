@@ -1,14 +1,17 @@
+
+
 DELIMITER $$
 
 CREATE PROCEDURE CreateContract(
     IN p_client_alias VARCHAR(50),
     IN p_organisation_name VARCHAR(100),
     IN p_start_date DATE,
-    IN p_end_date DATE,
+    IN p_end_date DATE
 )
 BEGIN
     DECLARE v_client_id INT;
     DECLARE v_org_id INT;
+    DECLARE v_contract_id INT;
 
     -- Get Client ID
     SELECT client_id INTO v_client_id FROM clients WHERE alias = p_client_alias;

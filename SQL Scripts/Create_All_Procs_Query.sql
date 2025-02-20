@@ -1,3 +1,4 @@
+SOURCE Procs/CreateContractProc.sql;
 SOURCE Procs/HitCreationProc.sql;
 SOURCE Procs/PromoteBeanNextLevelProc.sql;
 SOURCE Procs/PromoteBeanSpecifiedLevelProc.sql;
