@@ -1,4 +1,5 @@
 -- weapon_purchase 
+select 'Inserting weapon_purchase';
 INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
 VALUES (1, 2625.6, '2025-02-08');
 INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)

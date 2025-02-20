@@ -1,4 +1,5 @@
 -- targets
+select 'Inserting targets';
 INSERT INTO targets (target_id, description, target_image_url, target_name)
 VALUES (
         1,

@@ -1,4 +1,5 @@
 -- weapon_purchase_items
+select 'Inserting weapon_purchase_items';
 INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
 VALUES (15.0, 2.0, 10.0, 700.03);
 INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)

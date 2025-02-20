@@ -1,4 +1,5 @@
 -- weapons
+select 'Inserting weapons';
 INSERT INTO weapons (weapon_id, name, type, cost)
 VALUES (1, 'Explain', 'Pistol', 3334.59);
 INSERT INTO weapons (weapon_id, name, type, cost)

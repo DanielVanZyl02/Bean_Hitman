@@ -9,7 +9,7 @@ resource "aws_security_group" "rds-sec-grp" {
     from_port = 3306
     to_port = 3306
     protocol = "tcp"
-    security_groups = [aws_security_group.bastion_grp.id]
+    security_groups = [aws_security_group.bastion_grp.id, aws_security_group.ssm-sec-grp.id]
   }
 
   egress {
@@ -24,6 +24,32 @@ resource "aws_security_group" "rds-sec-grp" {
   }
 
 }
+
+resource "aws_security_group" "ssm-sec-grp" {
+  name = "ssm-sec-group"
+  description = "Allow traffic"
+  vpc_id = aws_vpc.main.id
+
+  egress {
+    description = "Allow outgoing https"
+    from_port = 443
+    to_port = 443
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "ssm-sec-group"
+  }
+}
+
 
 resource "aws_security_group" "bastion_grp" {
 
