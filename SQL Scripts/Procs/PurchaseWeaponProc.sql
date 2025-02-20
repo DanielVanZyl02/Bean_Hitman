@@ -10,30 +10,53 @@ CREATE PROCEDURE ProcessWeaponPurchase(
 BEGIN
     DECLARE v_purchase_id INTEGER;
     DECLARE v_existing_quantity INTEGER;
+    DECLARE v_weapon_count INTEGER;
+    DECLARE v_hit_id INTEGER;
+    DECLARE v_hit_status VARCHAR(50);
+    
+    SELECT count(*) INTO v_hit_id from hits where hit_id = p_hit_id;
+    SELECT status INTO v_hit_status from hits where hit_id = p_hit_id;
+    
+    IF v_hit_id = 0 THEN
+		SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'This hit does not exist.';
+	END IF;
+    
+    IF v_hit_status IN ("Completed","Cancelled","Failed") THEN
+		SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'You cannot purchase a weapon for a hit that is completed, cancelled, or failed.';
+	END IF;
 
-    -- Step 1: Check if the hit already has a weapon purchase
+
     SELECT weapon_purchase_id INTO v_purchase_id
     FROM hits
     WHERE hit_id = p_hit_id;
 
-    -- Step 2: If no existing purchase, create a new one
+
     IF v_purchase_id IS NULL THEN
         INSERT INTO weapon_purchase (total_cost, purchase_date)
         VALUES (0, CURDATE());
         SET v_purchase_id = LAST_INSERT_ID();
 
-        -- Update the hit to associate it with this purchase
+
         UPDATE hits
         SET weapon_purchase_id = v_purchase_id
         WHERE hit_id = p_hit_id;
     END IF;
 
-    -- Step 3: Check if the weapon is already in the purchase
+	SELECT count(*) INTO v_weapon_count FROM weapons WHERE weapon_id = p_weapon_id;
+    
+    IF v_weapon_count = 0 THEN
+		SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'This weapon does not exist';
+	END IF;
+
+
     SELECT quantity INTO v_existing_quantity
     FROM weapon_purchase_items
     WHERE purchase_id = v_purchase_id AND weapon_id = p_weapon_id;
 
-    -- Step 4: If weapon exists, update quantity; otherwise, insert a new row
+
     IF v_existing_quantity IS NOT NULL THEN
         UPDATE weapon_purchase_items
         SET quantity = v_existing_quantity + p_quantity

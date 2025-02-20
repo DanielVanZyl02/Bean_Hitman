@@ -1,4 +1,4 @@
-DROP TRIGGER IF EXISTS insert_weapon_purchase_total
+DROP TRIGGER IF EXISTS insert_weapon_purchase_total;
 
 DELIMITER $$
 

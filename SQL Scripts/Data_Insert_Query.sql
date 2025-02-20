@@ -876,50 +876,6 @@ VALUES (19, 998.41, 250.63, 634.13, 'Pending');
 INSERT INTO payments (payment_id, fertilizer, soil, nitrates, status)
 VALUES (20, 238.62, 152.32, 383.18, 'Completed');
 
-
--- weapon_purchase 
-select 'Inserting weapon_purchase';
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (1, 2625.6, '2025-02-08');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (2, 714.39, '2025-01-05');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (3, 1862.12, '2025-01-09');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (4, 1103.39, '2025-02-03');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (5, 695.95, '2025-01-15');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (6, 1749.14, '2025-01-02');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (7, 4047.83, '2025-01-26');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (8, 3663.45, '2025-02-05');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (9, 2590.02, '2025-02-14');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (10, 4494.07, '2025-02-09');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (11, 500.63, '2025-01-20');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (12, 924.53, '2025-01-26');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (13, 1045.16, '2025-01-17');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (14, 4118.44, '2025-01-24');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (15, 3621.86, '2025-01-23');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (16, 3531.81, '2025-01-01');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (17, 2655.29, '2025-02-08');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (18, 1031.43, '2025-01-27');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (19, 2517.97, '2025-01-27');
-INSERT INTO weapon_purchase (purchase_id, total_cost, purchase_date)
-VALUES (20, 1119.58, '2025-02-10');
-
 -- weapons
 SELECT 'Inserting weapons';
 INSERT INTO weapons (weapon_id, name, type, cost)
@@ -1044,67 +1000,6 @@ VALUES (3, 14);
 INSERT INTO weapons_suppliers (supplier_id, weapon_id)
 VALUES (8, 9);
 
--- weapon_purchase_items
-select 'Inserting weapon_purchase_items';
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (15.0, 2.0, 10.0, 700.03);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (1.0, 12.0, 8.0, 226.63);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (4.0, 16.0, 8.0, 378.93);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (16.0, 12.0, 7.0, 554.02);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (3.0, 11.0, 1.0, 592.31);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (7.0, 10.0, 7.0, 855.48);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (13.0, 14.0, 6.0, 817.88);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (16.0, 9.0, 6.0, 877.86);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (12.0, 4.0, 6.0, 548.28);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (8.0, 4.0, 9.0, 764.65);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (17.0, 10.0, 8.0, 226.24);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (18.0, 3.0, 4.0, 850.58);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (16.0, 11.0, 10.0, 747.44);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (4.0, 8.0, 4.0, 157.97);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (6.0, 13.0, 10.0, 877.21);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (7.0, 1.0, 3.0, 631.71);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (8.0, 13.0, 3.0, 635.23);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (16.0, 2.0, 10.0, 441.5);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (11.0, 6.0, 7.0, 269.34);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (7.0, 7.0, 6.0, 677.64);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (19.0, 9.0, 2.0, 142.7);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (12.0, 20.0, 7.0, 357.1);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (3.0, 1.0, 6.0, 987.66);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (18.0, 13.0, 5.0, 817.54);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (14.0, 11.0, 2.0, 293.21);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (10.0, 6.0, 2.0, 530.86);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (3.0, 7.0, 3.0, 555.38);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (14.0, 2.0, 5.0, 561.44);
-INSERT INTO weapon_purchase_items (purchase_id, weapon_id, quantity, cost)
-VALUES (19.0, 20.0, 9.0, 841.98);
-
 
 -- hits
 select 'Inserting hits';
@@ -1117,8 +1012,7 @@ INSERT INTO hits (
         hit_due_date,
         status,
         payment_id,
-        location_id,
-        weapon_purchase_id
+        location_id
     )
 VALUES (
         1,
@@ -1129,247 +1023,6 @@ VALUES (
         '2025-02-17',
         'Failed',
         1,
-        5,
-        3
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        2,
-        2,
-        2,
-        1,
-        '2025-02-01',
-        '2025-03-08',
-        'Scheduled',
-        2,
-        10,
-        12
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        3,
-        3,
-        7,
-        10,
-        '2025-01-06',
-        '2025-02-23',
-        'Completed',
-        3,
-        3,
-        10
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        4,
-        12,
-        8,
-        13,
-        '2025-01-07',
-        '2025-03-09',
-        'Active',
-        4,
-        6,
-        14
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        5,
-        4,
-        2,
-        14,
-        '2025-01-21',
-        '2025-03-08',
-        'Completed',
-        5,
-        2,
-        6
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        6,
-        19,
-        7,
-        8,
-        '2025-01-13',
-        '2025-02-23',
-        'Active',
-        6,
-        1,
-        15
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        8,
-        9,
-        20,
-        7,
-        '2025-02-11',
-        '2025-02-28',
-        'Failed',
-        8,
-        7,
-        17
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        11,
-        14,
-        7,
-        6,
-        '2025-02-04',
-        '2025-02-19',
-        'Failed',
-        11,
-        4,
-        7
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        12,
-        7,
-        4,
-        20,
-        '2025-01-30',
-        '2025-03-08',
-        'Completed',
-        12,
-        7,
-        8
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        13,
-        13,
-        9,
-        12,
-        '2025-02-13',
-        '2025-02-28',
-        'Failed',
-        13,
-        8,
-        18
-    );
-INSERT INTO hits (
-        hit_id,
-        target_id,
-        bean_id,
-        contract_id,
-        hit_start_date,
-        hit_due_date,
-        status,
-        payment_id,
-        location_id,
-        weapon_purchase_id
-    )
-VALUES (
-        15,
-        14,
-        12,
-        16,
-        '2025-01-30',
-        '2025-03-02',
-        'Completed',
-        15,
-        9,
         5
     );
 INSERT INTO hits (
@@ -1381,20 +1034,18 @@ INSERT INTO hits (
         hit_due_date,
         status,
         payment_id,
-        location_id,
-        weapon_purchase_id
+        location_id
     )
 VALUES (
-        16,
         2,
-        13,
-        8,
-        '2025-01-25',
-        '2025-03-11',
-        'Completed',
-        16,
-        7,
-        13
+        2,
+        2,
+        1,
+        '2025-02-01',
+        '2025-03-08',
+        'Scheduled',
+        2,
+        10
     );
 INSERT INTO hits (
         hit_id,
@@ -1405,8 +1056,227 @@ INSERT INTO hits (
         hit_due_date,
         status,
         payment_id,
-        location_id,
-        weapon_purchase_id
+        location_id
+    )
+VALUES (
+        3,
+        3,
+        7,
+        10,
+        '2025-01-06',
+        '2025-02-23',
+        'Completed',
+        3,
+        3
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
+    )
+VALUES (
+        4,
+        12,
+        8,
+        13,
+        '2025-01-07',
+        '2025-03-09',
+        'Active',
+        4,
+        6
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
+    )
+VALUES (
+        5,
+        4,
+        2,
+        14,
+        '2025-01-21',
+        '2025-03-08',
+        'Completed',
+        5,
+        2
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
+    )
+VALUES (
+        6,
+        19,
+        7,
+        8,
+        '2025-01-13',
+        '2025-02-23',
+        'Active',
+        6,
+        1
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
+    )
+VALUES (
+        8,
+        9,
+        20,
+        7,
+        '2025-02-11',
+        '2025-02-28',
+        'Failed',
+        8,
+        7
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
+    )
+VALUES (
+        11,
+        14,
+        7,
+        6,
+        '2025-02-04',
+        '2025-02-19',
+        'Failed',
+        11,
+        4
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
+    )
+VALUES (
+        12,
+        7,
+        4,
+        20,
+        '2025-01-30',
+        '2025-03-08',
+        'Completed',
+        12,
+        7
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
+    )
+VALUES (
+        13,
+        13,
+        9,
+        12,
+        '2025-02-13',
+        '2025-02-28',
+        'Failed',
+        13,
+        8
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
+    )
+VALUES (
+        15,
+        14,
+        12,
+        16,
+        '2025-01-30',
+        '2025-03-02',
+        'Completed',
+        15,
+        9
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
+    )
+VALUES (
+        16,
+        2,
+        13,
+        8,
+        '2025-01-25',
+        '2025-03-11',
+        'Completed',
+        16,
+        7
+    );
+INSERT INTO hits (
+        hit_id,
+        target_id,
+        bean_id,
+        contract_id,
+        hit_start_date,
+        hit_due_date,
+        status,
+        payment_id,
+        location_id
     )
 VALUES (
         20,
@@ -1417,8 +1287,7 @@ VALUES (
         '2025-03-02',
         'Completed',
         20,
-        6,
-        1
+        6
     );
 
 

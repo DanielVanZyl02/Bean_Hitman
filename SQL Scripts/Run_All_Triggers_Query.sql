@@ -10,3 +10,5 @@ SOURCE Triggers/BeforeInsertTrimBeanAliasTrigger.sql;
 SOURCE Triggers/BeforeUpdateTrimBeanAliasTrigger.sql;
 SOURCE Triggers/BlockAdditionalCurrencyEntriesTrigger.sql;
 SOURCE Triggers/AfterInsertWeaponPurchaseTotalCostTrigger.sql;
+SOURCE Triggers/BeforeInsertTrimClientAliasTrigger.sql;
+SOURCE Triggers/BeforeUpdateTrimClientAliasTrigger.sql;
