@@ -6,8 +6,8 @@ CREATE PROCEDURE CreateBeanRole()
 BEGIN -- Create the role if it doesn’t exist
 CREATE ROLE IF NOT EXISTS 'bean_role';
 -- Grant EXECUTE permission on specific stored procedures
-GRANT EXECUTE ON PROCEDURE Hitman_Association.PromoteBeanNextLevelProc TO 'bean_role';
+GRANT SELECT ON Hitman_Association.beans TO 'bean_role';
 -- Apply changes
 FLUSH PRIVILEGES;
 END // 
-DELIMITER;
+DELIMITER ;

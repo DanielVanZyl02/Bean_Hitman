@@ -1,34 +1,22 @@
 -- specialisations
-select 'Inserting specialisations';
+SELECT 'Inserting specialisations';
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (
-        1,
-        'Planning and development surveyor'
-    );
+VALUES (1, 'Master Strategist');
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (
-        2,
-        'Estate manager/land agent'
-    );
+VALUES (2, 'Covert Operative');
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (3, 'Museum/gallery curator');
+VALUES (3, 'Disguise Expert');
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (
-        4,
-        'Civil engineer, consulting'
-    );
+VALUES (4, 'Demolitions Specialist');
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (5, 'Ecologist');
+VALUES (5, 'Silent Assassin');
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (6, 'Airline pilot');
+VALUES (6, 'Sniper Specialist');
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (
-        7,
-        'Sound technician, broadcasting/film/video'
-    );
+VALUES (7, 'Hand-to-Hand Combatant');
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (8, 'Theatre stage manager');
+VALUES (8, 'Espionage Expert');
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (9, 'Fashion designer');
+VALUES (9, 'Cyber Warfare Specialist');
 INSERT INTO specialisations (spec_id, spec_name)
-VALUES (10, 'Charity fundraiser');
+VALUES (10, 'Extraction Specialist');

@@ -25,7 +25,7 @@ VALUES (
         2,
         'Hit',
         3,
-        'Never miss hit',
+        'South Africa',
         'Semi-pro'
     );
 INSERT INTO beans (

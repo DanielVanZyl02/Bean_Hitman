@@ -35,4 +35,4 @@ INSERT INTO organisations (name, type)
 VALUES (p_username, p_type);
 END // 
 
-DELIMITER;
+DELIMITER ;

@@ -28,9 +28,7 @@ EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
 -- Apply changes
 FLUSH PRIVILEGES;
--- Insert user into the middlemen table
-INSERT INTO middlemen (username)
-VALUES (p_username);
+
 END // 
 
-DELIMITER;
+DELIMITER ;
