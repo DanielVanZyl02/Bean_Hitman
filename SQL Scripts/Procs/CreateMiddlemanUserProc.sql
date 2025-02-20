@@ -33,4 +33,4 @@ INSERT INTO middlemen (username)
 VALUES (p_username);
 END // 
 
-DELIMITER;
+DELIMITER ;

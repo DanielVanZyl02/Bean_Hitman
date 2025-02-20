@@ -7,10 +7,11 @@ BEGIN -- Create the role if it doesn’t exist
 CREATE ROLE IF NOT EXISTS 'org_role';
 -- Grant permissions to insert into the `hits` table
 GRANT INSERT ON Hitman_Association.hits TO 'org_role';
+GRANT SELECT ON Hitman_Association.hits TO 'org_role';
 -- Grant EXECUTE permission on specific stored procedures
-GRANT EXECUTE ON PROCEDURE Hitman_Association.CreateHitContract TO 'org_role';
+-- GRANT EXECUTE ON PROCEDURE Hitman_Association.CreateHitContract TO 'org_role';
 -- Apply changes
 FLUSH PRIVILEGES;
 END // 
 
-DELIMITER;
+DELIMITER ;
