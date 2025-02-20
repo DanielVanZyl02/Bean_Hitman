@@ -34,7 +34,7 @@ DEALLOCATE PREPARE stmt;
 -- Apply changes
 FLUSH PRIVILEGES;
 -- Insert user into the beans table
-INSERT INTO beans (username, org_id, origin, skill_level)
+INSERT INTO beans (alias, org_id, origin, skill_level)
 VALUES (p_username, p_org_id, p_origin, p_skill_level);
 END // 
 
