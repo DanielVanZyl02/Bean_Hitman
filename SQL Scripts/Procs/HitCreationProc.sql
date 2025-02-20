@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+USE hitman_association;
+>>>>>>> development
 DROP PROCEDURE IF EXISTS CreateHitContract;
 
 DELIMITER $$

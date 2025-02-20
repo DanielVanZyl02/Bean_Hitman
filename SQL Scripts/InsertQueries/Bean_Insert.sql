@@ -79,7 +79,7 @@ INSERT INTO beans (
     )
 VALUES (
         6,
-        'xhall',
+        'Jack the Reaper',
         9,
         'Cocos (Keeling) Islands',
         'Semi-pro'
