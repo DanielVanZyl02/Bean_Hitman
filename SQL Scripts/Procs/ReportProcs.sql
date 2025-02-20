@@ -112,16 +112,48 @@ END $$
 
 
 -- Monthly Revenue Report
-DROP PROCEDURE IF EXISTS MonthlyHitRevenue;
-CREATE PROCEDURE MonthlyHitRevenue()
+DROP PROCEDURE IF exists MonthlyHitRevenue $$
+CREATE PROCEDURE MonthlyHitRevenue(payment_status VARCHAR(50))
 BEGIN
+    DECLARE Soil_Rate DECIMAL(10,2);
+    DECLARE Fertilizer_Rate DECIMAL(10,2);
+    DECLARE Nitrates_Rate DECIMAL(10,2);
+
+    SELECT soil, fertilizer, nitrates INTO Soil_Rate, Fertilizer_Rate, Nitrates_Rate
+    FROM currency_values LIMIT 1;
+    
     SELECT 
-    SUM(p.fertilizer + p.nitrates + p.soil) AS Revenue,
-    monthname(h.hit_due_date) AS MonthDue
+        ROUND(SUM(p.soil),2) AS Raw_Soil,
+        Soil_Rate,
+        ROUND(SUM(p.fertilizer),2)AS Raw_Fertilizer,
+		Fertilizer_Rate,
+        ROUND(SUM(p.nitrates),2) AS Raw_Nitrate,
+        Nitrates_Rate,
+        ROUND((SUM(p.soil) * Soil_Rate),2)  AS Soil_Value,
+        ROUND((SUM(p.fertilizer) * Fertilizer_Rate),2) AS Fertilizer_Value,
+        ROUND((SUM(p.nitrates) * Nitrates_Rate),2) AS Nitrates_Value,
+        ROUND((SUM(p.soil * Soil_Rate + p.fertilizer * Fertilizer_Rate + p.nitrates * Nitrates_Rate)),2) AS Total_Value, 
+        MONTHNAME(h.hit_due_date) AS Month
     FROM hits h
     INNER JOIN payments p ON h.payment_id = p.payment_id
-    WHERE h.status = 'Completed'    
-    GROUP BY MonthDue;
+    WHERE h.status = 'Completed' AND p.status = payment_status
+    GROUP BY Month
+    ORDER BY Month;
+END $$
+
+
+-- Get Amounts due for each client
+DROP PROCEDURE IF exists AmountDue $$
+CREATE PROCEDURE AmountDue(client_alias VARCHAR(50))
+BEGIN
+    SELECT  cl.alias AS Client, org.name AS Organisation, p.soil AS Soil, p.fertilizer AS Fertilizer, p.nitrates AS Nitrates
+    FROM hits h
+    INNER JOIN payments p ON p.payment_id = h.payment_id
+    INNER JOIN contracts con ON con.contract_id = h.contract_id
+    INNER JOIN organisations org ON org.org_id = con.organisation_id
+    INNER JOIN clients cl ON cl.client_id = con.client_id
+    WHERE cl.alias = client_alias
+    AND p.status = 'Pending';
 END $$
 
 DELIMITER ;
