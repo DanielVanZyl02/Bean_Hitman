@@ -120,6 +120,12 @@ CREATE TABLE `contracts` (
         'Cancelled'
     )
 );
+CREATE TABLE `currency_values` (
+    `currency_id` integer PRIMARY KEY AUTO_INCREMENT,
+    `fertilizer` DECIMAL(10, 2) NOT NULL,
+    `soil` DECIMAL(10, 2) NOT NULL,
+    `nitrates` DECIMAL(10, 2) NOT NULL
+);
 ALTER TABLE `hits`
 ADD FOREIGN KEY (`bean_id`) REFERENCES `beans` (`bean_id`);
 ALTER TABLE `hits`
