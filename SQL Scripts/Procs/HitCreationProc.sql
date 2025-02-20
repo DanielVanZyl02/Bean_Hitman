@@ -2,7 +2,7 @@ DROP PROCEDURE IF EXISTS CreateHitContract;
 
 DELIMITER $$
 
-CREATE PROCEDURE CreateHitContract(
+CREATE DEFINER='root'@'%' PROCEDURE CreateHitContract(
     IN p_target_description VARCHAR(255),
     IN p_target_image_url VARCHAR(2083),
     IN p_target_name VARCHAR(50),
@@ -19,7 +19,7 @@ CREATE PROCEDURE CreateHitContract(
     IN p_payment_status VARCHAR(50),
     IN p_bean_id INTEGER,
     IN p_contract_id INTEGER
-)
+) SQL SECURITY DEFINER
 BEGIN
     DECLARE v_location_id INT;
     DECLARE v_target_id INT;

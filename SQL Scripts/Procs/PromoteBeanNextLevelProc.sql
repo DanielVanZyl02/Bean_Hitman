@@ -3,9 +3,9 @@ DROP PROCEDURE IF EXISTS PromoteBeanNextLevelProc;
 
 DELIMITER $$
 
-CREATE PROCEDURE PromoteBeanNextLevelProc(
+CREATE DEFINER='root'@'%' PROCEDURE PromoteBeanNextLevelProc(
     IN p_bean_id INT
-)
+) SQL SECURITY DEFINER
 BEGIN
     DECLARE v_current_skill_level ENUM(
     'Street Level',

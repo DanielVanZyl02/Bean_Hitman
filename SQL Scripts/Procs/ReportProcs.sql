@@ -2,7 +2,7 @@ USE hitman_association;
 DELIMITER $$
 
 DROP PROCEDURE IF EXISTS GetTopEarningBeans$$
-CREATE PROCEDURE GetTopEarningBeans(limit_count INT)
+CREATE DEFINER='root'@'%' PROCEDURE GetTopEarningBeans(limit_count INT) SQL SECURITY DEFINER
 BEGIN
     SELECT 
         b.bean_id,

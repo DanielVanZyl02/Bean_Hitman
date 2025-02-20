@@ -8,8 +8,14 @@ CREATE PROCEDURE CreateBeanUser(
     IN p_org_id INT,
     IN p_origin VARCHAR(50),
     IN p_skill_level VARCHAR(50)
-) 
-BEGIN -- Create MySQL user at the server level
+) BEGIN
+DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+BEGIN -- Rollback the transaction in case of an error
+    ROLLBACK;
+END;
+-- Start the transaction
+START TRANSACTION;
+-- Create MySQL user at the server level
 SET @create_user_query = CONCAT(
         'CREATE USER ''',
         p_username,
@@ -36,6 +42,8 @@ FLUSH PRIVILEGES;
 -- Insert user into the beans table
 INSERT INTO beans (alias, org_id, origin, skill_level)
 VALUES (p_username, p_org_id, p_origin, p_skill_level);
+-- Commit the transaction
+COMMIT;
 END // 
 
 DELIMITER ;

@@ -2,7 +2,7 @@ USE hitman_association;
 DELIMITER $$
 
 DROP PROCEDURE IF EXISTS PaymentRecieved $$
-CREATE PROCEDURE PaymentRecieved(hit_id INT, new_status VARCHAR(50))
+CREATE DEFINER='root'@'%' PROCEDURE PaymentRecieved(hit_id INT, new_status VARCHAR(50)) SQL SECURITY DEFINER
 BEGIN
     DECLARE payment_id INT;
     
