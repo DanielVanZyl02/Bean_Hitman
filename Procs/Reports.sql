@@ -19,7 +19,6 @@ END $$
 
 
 -- Get the total amount of nutrients, soil, and fertilizer paid for all hits
-
 CREATE PROCEDURE GetTotalSpent()
 BEGIN
     SELECT 
@@ -104,6 +103,21 @@ BEGIN
     GROUP BY c.alias
     ORDER BY total_contracts DESC
     LIMIT limit_count;
+END $$
+
+
+-- Monthly Revenue Report
+DROP PROCEDURE IF exists MonthlyHitRevenue;
+
+CREATE PROCEDURE MonthlyHitRevenue()
+BEGIN
+    SELECT 
+    SUM(p.fertilizer + p.nitrates + p.soil) AS Revenue,
+    monthname(h.hit_due_date) AS MonthDue
+    FROM hits h
+    INNER JOIN payments p ON h.payment_id = p.payment_id
+    WHERE h.status = 'Completed'    
+    GROUP BY MonthDue;
 END $$
 
 DELIMITER ;
