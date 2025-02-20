@@ -2,11 +2,11 @@ DROP PROCEDURE IF EXISTS ProcessWeaponPurchase;
 
 DELIMITER $$
 
-CREATE PROCEDURE ProcessWeaponPurchase(
+CREATE DEFINER='root'@'%' PROCEDURE ProcessWeaponPurchase(
     IN p_weapon_id INTEGER,
     IN p_hit_id INTEGER,
     IN p_quantity INTEGER
-)
+) SQL SECURITY DEFINER
 BEGIN
     DECLARE v_purchase_id INTEGER;
     DECLARE v_existing_quantity INTEGER;

@@ -6,7 +6,14 @@ CREATE PROCEDURE CreateOrgUser(
     IN p_username VARCHAR(50),
     IN p_password VARCHAR(50),
     IN p_type VARCHAR(50)
-) BEGIN -- Create MySQL user at the server level
+) BEGIN
+DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+BEGIN -- Rollback transaction on error
+    ROLLBACK;
+END;
+-- Start transaction
+START TRANSACTION;
+-- Create MySQL user at the server level
 SET @create_user_query = CONCAT(
         'CREATE USER ''',
         p_username,
@@ -33,6 +40,8 @@ FLUSH PRIVILEGES;
 -- Insert user into the organisations table
 INSERT INTO organisations (name, type)
 VALUES (p_username, p_type);
+-- Commit transaction
+COMMIT;
 END // 
 
 DELIMITER ;
