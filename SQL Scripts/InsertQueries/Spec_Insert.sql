@@ -1,4 +1,5 @@
 -- specialisations
+select 'Inserting specialisations';
 INSERT INTO specialisations (spec_id, spec_name)
 VALUES (
         1,

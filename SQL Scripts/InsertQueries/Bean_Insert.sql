@@ -1,4 +1,5 @@
 -- beans
+select 'Inserting beans';
 INSERT INTO beans (
         bean_id,
         alias,
