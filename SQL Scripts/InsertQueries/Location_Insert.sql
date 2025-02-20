@@ -1,4 +1,5 @@
 -- locations
+select 'Inserting locations';
 INSERT INTO locations (
         location_id,
         location_name,

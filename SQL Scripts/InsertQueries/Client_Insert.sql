@@ -1,4 +1,5 @@
 -- clients
+select 'Inserting clients';
 INSERT INTO clients (client_id, alias)
 VALUES (1, 'Kakarot');
 INSERT INTO clients (client_id, alias)

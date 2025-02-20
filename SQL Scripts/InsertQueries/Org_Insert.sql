@@ -1,4 +1,5 @@
 -- organisations
+select 'Inserting organisations';
 INSERT INTO organisations (org_id, name, type)
 VALUES (1, 'Division', 'Private');
 INSERT INTO organisations (org_id, name, type)

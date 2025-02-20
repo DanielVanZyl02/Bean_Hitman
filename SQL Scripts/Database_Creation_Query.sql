@@ -3,7 +3,7 @@ CREATE DATABASE `Hitman_Association`;
 USE `Hitman_Association`;
 CREATE TABLE `beans` (
     `bean_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `alias` varchar(50) UNIQUE NOT NULL,
+    `alias` varchar(50) UNIQUE NOT NULL CHECK (LENGTH(TRIM(`alias`)) > 0),
     `org_id` integer NOT NULL,
     `origin` varchar(100),
     `skill_level` ENUM(
@@ -16,7 +16,7 @@ CREATE TABLE `beans` (
 );
 CREATE TABLE `specialisations` (
     `spec_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `spec_name` varchar(100) UNIQUE NOT NULL
+    `spec_name` varchar(100) UNIQUE NOT NULL CHECK (LENGTH(TRIM(`spec_name`)) > 0)
 );
 CREATE TABLE `spec_bean` (
     `bean_id` integer,
@@ -39,11 +39,14 @@ CREATE TABLE `hits` (
     ),
     `payment_id` integer UNIQUE NOT NULL,
     `location_id` integer,
-    `weapon_purchase_id` integer UNIQUE
+    `weapon_purchase_id` integer UNIQUE,
+    CHECK (
+        `hit_start_date` < `hit_due_date`
+    )
 );
 CREATE TABLE `locations` (
     `location_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `location_name` varchar(100) NOT NULL,
+    `location_name` varchar(100) NOT NULL CHECK (LENGTH(TRIM(`location_name`)) > 0),
     `latitude` decimal(9, 6) NOT NULL CHECK (
         `latitude` BETWEEN -90 AND 90
     ),
@@ -54,7 +57,7 @@ CREATE TABLE `locations` (
 );
 CREATE TABLE `organisations` (
     `org_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `name` varchar(100) UNIQUE NOT NULL,
+    `name` varchar(100) UNIQUE NOT NULL CHECK (LENGTH(TRIM(`name`)) > 0),
     `type` varchar(50) NOT NULL
 );
 CREATE TABLE `payments` (
@@ -84,8 +87,8 @@ CREATE TABLE `weapon_purchase_items` (
 );
 CREATE TABLE `weapons` (
     `weapon_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `name` varchar(100) UNIQUE NOT NULL,
-    `type` varchar(50) NOT NULL,
+    `name` varchar(100) UNIQUE NOT NULL CHECK (LENGTH(TRIM(`name`)) > 0),
+    `type` varchar(50) NOT NULL CHECK (LENGTH(TRIM(`type`)) > 0),
     `cost` DECIMAL(10, 2) NOT NULL CHECK (`cost` >= 0)
 );
 CREATE TABLE `weapons_suppliers` (
@@ -95,18 +98,18 @@ CREATE TABLE `weapons_suppliers` (
 );
 CREATE TABLE `suppliers` (
     `supplier_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `name` varchar(100) UNIQUE NOT NULL,
+    `name` varchar(100) UNIQUE NOT NULL CHECK (LENGTH(TRIM(`name`)) > 0),
     `contact_number` varchar(20)
 );
 CREATE TABLE `targets` (
     `target_id` integer PRIMARY KEY AUTO_INCREMENT,
     `description` varchar(255) NOT NULL,
     `target_image_url` varchar(2083),
-    `target_name` varchar(50) NOT NULL
+    `target_name` varchar(50) NOT NULL CHECK (LENGTH(TRIM(`target_name`)) > 0)
 );
 CREATE TABLE `clients` (
     `client_id` integer PRIMARY KEY AUTO_INCREMENT,
-    `alias` varchar(50) UNIQUE NOT NULL
+    `alias` varchar(50) UNIQUE NOT NULL CHECK (LENGTH(TRIM(`alias`)) > 0)
 );
 CREATE TABLE `contracts` (
     `contract_id` integer PRIMARY KEY AUTO_INCREMENT,
@@ -118,6 +121,9 @@ CREATE TABLE `contracts` (
         'Active',
         'Completed',
         'Cancelled'
+    ),
+    CHECK (
+        `start_date` < `end_date`
     )
 );
 CREATE TABLE `currency_values` (

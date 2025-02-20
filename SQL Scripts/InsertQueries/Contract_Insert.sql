@@ -1,4 +1,5 @@
 -- contracts
+select 'Inserting contracts';
 INSERT INTO contracts (
         contract_id,
         organisation_id,
