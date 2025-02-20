@@ -1,4 +1,5 @@
-
+USE hitman_association;
+DROP PROCEDURE IF EXISTS CreateContract;
 
 DELIMITER $$
 
