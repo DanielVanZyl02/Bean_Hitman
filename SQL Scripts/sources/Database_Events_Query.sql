@@ -1,0 +1,1 @@
+SOURCE ../migrations/sql/Events/R__failedHitEventCheck.sql;

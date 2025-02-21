@@ -1,0 +1,12 @@
+SOURCE ../migrations/sql/Procs/R__HitCreationProc.sql;
+SOURCE ../migrations/sql/Procs/R__PromoteBeanNextLevelProc.sql;
+SOURCE ../migrations/sql/Procs/R__PromoteBeanSpecifiedLevelProc.sql;
+SOURCE ../migrations/sql/Procs/R__PurchaseWeaponProc.sql;
+SOURCE ../migrations/sql/Procs/R__ReportProcs.sql;
+SOURCE ../migrations/sql/Procs/R__SelectingAppropriateHitmanByRandomProc.sql;
+SOURCE ../migrations/sql/Procs/R__CreateBeanRoleProc.sql;
+SOURCE ../migrations/sql/Procs/R__CreateBeanUserProc.sql;
+SOURCE ../migrations/sql/Procs/R__CreateMiddlemanRoleProc.sql;
+SOURCE ../migrations/sql/Procs/R__CreateMiddlemanUserProc.sql;
+SOURCE ../migrations/sql/Procs/R__CreateOrgRoleProc.sql;
+SOURCE ../migrations/sql/Procs/R__CreateOrgUserProc.sql;

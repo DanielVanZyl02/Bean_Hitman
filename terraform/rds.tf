@@ -18,10 +18,10 @@ resource "aws_db_instance" "main" {
   db_name = var.database_name
   instance_class = "db.t3.micro"
   engine = "mysql"
-  engine_version = "8.0"
+  engine_version = "8.4"
   username = local.db_creds.username
   password = local.db_creds.password
-  parameter_group_name = "default.mysql8.0"
+  parameter_group_name = "default.mysql8.4"
   skip_final_snapshot = true
   publicly_accessible = false
   db_subnet_group_name = aws_db_subnet_group.default.name
