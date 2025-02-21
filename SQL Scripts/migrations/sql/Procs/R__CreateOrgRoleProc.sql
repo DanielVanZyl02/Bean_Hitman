@@ -20,8 +20,8 @@ BEGIN
     GRANT ALL PRIVILEGES ON hitmanassociation.hits TO 'org_role';
     GRANT ALL PRIVILEGES ON hitmanassociation.beans TO 'org_role';
     GRANT SELECT ON hitmanassociation.suppliers TO 'org_role';
-    GRANT ALL PRIVILEGES hitmanassociation.weapon_purchase TO 'org_role';
-    GRANT ALL PRIVILEGES hitmanassociation.weapon_purchase_items TO 'org_role';
+    GRANT ALL PRIVILEGES ON hitmanassociation.weapon_purchase TO 'org_role';
+    GRANT ALL PRIVILEGES ON hitmanassociation.weapon_purchase_items TO 'org_role';
     GRANT SELECT ON hitmanassociation.weapons TO 'org_role';
 
     GRANT EXECUTE ON PROCEDURE hitmanassociation.CreateHitContract TO 'org_role';
