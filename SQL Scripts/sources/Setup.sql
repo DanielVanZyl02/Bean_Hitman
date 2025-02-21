@@ -6,3 +6,4 @@ SOURCE ./Database_Events_Query.sql;
 SOURCE ../migrations/sql/Views/R__Hit_Details.view.sql;
 SOURCE ../migrations/sql/Views/R__Contract_Details.view.sql;
 SOURCE ../migrations/sql/Views/R__Bean_Details.view.sql;
+SOURCE ../migrations/sql/Functions/R__CalculatePaymentValue.sql;
