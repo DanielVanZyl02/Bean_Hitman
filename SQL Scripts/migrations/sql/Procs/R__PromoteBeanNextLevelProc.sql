@@ -2,7 +2,7 @@ DROP PROCEDURE IF EXISTS PromoteBeanNextLevelProc;
 
 DELIMITER $$
 
-CREATE DEFINER='root'@'%' PROCEDURE PromoteBeanNextLevelProc(
+CREATE PROCEDURE PromoteBeanNextLevelProc(
     IN p_bean_id INT
 ) SQL SECURITY DEFINER
 BEGIN

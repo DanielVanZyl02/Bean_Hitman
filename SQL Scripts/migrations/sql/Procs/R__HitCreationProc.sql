@@ -2,7 +2,7 @@ DROP PROCEDURE IF EXISTS CreateHitContract;
 
 DELIMITER $$
 
-CREATE DEFINER='root'@'%' PROCEDURE CreateHitContract(
+CREATE PROCEDURE CreateHitContract(
     IN p_target_description VARCHAR(255),
     IN p_target_image_url VARCHAR(2083),
     IN p_target_name VARCHAR(50),

@@ -2,7 +2,7 @@ DROP PROCEDURE IF EXISTS PromoteBeanSpecifiedLevelProc;
 
 DELIMITER $$
 
-CREATE DEFINER='root'@'%' PROCEDURE PromoteBeanSpecifiedLevelProc
+CREATE PROCEDURE PromoteBeanSpecifiedLevelProc
 (
 	IN p_bean_id int,
     IN p_new_skill_level ENUM(
