@@ -2,7 +2,7 @@ DROP PROCEDURE IF EXISTS ProcessWeaponPurchase;
 
 DELIMITER $$
 
-CREATE DEFINER='root'@'%' PROCEDURE ProcessWeaponPurchase(
+CREATE PROCEDURE ProcessWeaponPurchase(
     IN p_weapon_id INTEGER,
     IN p_hit_id INTEGER,
     IN p_quantity INTEGER

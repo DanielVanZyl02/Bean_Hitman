@@ -1,12 +1,12 @@
 DELIMITER $$
 
 DROP PROCEDURE IF EXISTS GetTopEarningBeans$$
-CREATE DEFINER='root'@'%' PROCEDURE GetTopEarningBeans(limit_count INT) SQL SECURITY DEFINER
+CREATE PROCEDURE GetTopEarningBeans(limit_count INT) SQL SECURITY DEFINER
 BEGIN
     SELECT 
         b.bean_id,
         b.alias,
-        SUM(p.fertilizer + p.soil + p.nitrates) AS total_earnings
+        SUM(CalculatePaymentValue(p.payment_id)) AS total_earnings
     FROM hits h
     INNER JOIN beans b ON h.bean_id = b.bean_id
     INNER JOIN payments p ON h.payment_id = p.payment_id
@@ -14,7 +14,7 @@ BEGIN
     GROUP BY b.bean_id, b.alias
     ORDER BY total_earnings DESC
     LIMIT limit_count;
-END $$
+END; $$
 
 -- Get the total amount of nutrients, soil, and fertilizer paid for all hits
 DROP PROCEDURE IF EXISTS GetTotalSpent$$
@@ -27,8 +27,6 @@ BEGIN
         SUM(fertilizer + soil + nitrates) AS total_spent
     FROM payments;
 END $$
-
-
 
 -- Calculate the total number of hits performed per bean
 DROP PROCEDURE IF EXISTS GetHitCountPerBean$$
@@ -83,12 +81,12 @@ CREATE PROCEDURE GetTopEarningOrganization()
 BEGIN
     SELECT 
         o.name AS organization_name,
-        SUM(p.fertilizer + p.soil + p.nitrates) AS total_earnings
+        SUM(CalculatePaymentValue(p.payment_id)) AS total_earnings
     FROM organisations o
     JOIN beans b ON o.org_id = b.org_id
     JOIN hits h ON b.bean_id = h.bean_id
     JOIN payments p ON h.payment_id = p.payment_id
-    WHERE h.status = 'Completed'
+    WHERE h.status = 'Completed' AND p.status = 'Completed'
     GROUP BY o.name
     ORDER BY total_earnings DESC
     LIMIT 1;
@@ -161,7 +159,7 @@ END $$
 
 -- Beans Under Contracts
 DROP PROCEDURE IF EXISTS BeansUnderContract $$
-CREATE PROCEDURE BeansUnderClientContract(org_name VARCHAR(50))
+CREATE PROCEDURE BeansUnderContract(org_name VARCHAR(50))
 BEGIN
 	SELECT org.name, b.alias, con.contract_id
     FROM organisations org
