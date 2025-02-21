@@ -8,12 +8,12 @@ CREATE PROCEDURE CreateOrgUser(
     IN p_type VARCHAR(50)
 ) BEGIN
 DECLARE EXIT HANDLER FOR SQLEXCEPTION 
-BEGIN -- Rollback transaction on error
+BEGIN
     ROLLBACK;
 END;
--- Start transaction
+
 START TRANSACTION;
--- Create MySQL user at the server level
+
 SET @create_user_query = CONCAT(
         'CREATE USER ''',
         p_username,
@@ -25,7 +25,7 @@ PREPARE stmt
 FROM @create_user_query;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
--- Assign the role to the user
+
 SET @assign_role_query = CONCAT(
         'GRANT ''org_role'' TO ''',
         p_username,
@@ -35,12 +35,12 @@ PREPARE stmt
 FROM @assign_role_query;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
--- Apply changes
+
 FLUSH PRIVILEGES;
--- Insert user into the organisations table
+
 INSERT INTO organisations (name, type)
 VALUES (p_username, p_type);
--- Commit transaction
+
 COMMIT;
 END // 
 
